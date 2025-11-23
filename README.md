@@ -13,20 +13,55 @@ It is designed using SQLite / MySQL commands in CMD and follows proper relationa
 
 ✨ Features
 
-Store and manage aircraft details (model, tail number, capacity)
-Add and track pilot information (pilot ID, name, license number, experience)
-Log flight details such as:
+1. Aircraft Management
+Store details like aircraft model, tail number, and seating capacity.
+Ensure unique tail numbers to avoid duplication.
+Maintain a structured list of all aircraft in use.
+
+2. Pilot Information Tracking
+Record pilot details including name, license number, and years of experience.
+Enforce unique license numbers for data accuracy.
+Easily retrieve pilot information for assigned flights.
+
+3. Flight Log Storage
+Save complete flight details:
 Flight ID
-Pilot ID
-Aircraft ID
+Pilot assigned to the flight
+Aircraft used
 Departure airport
 Arrival airport
 Departure time
 Arrival time
+Maintains a chronological history of all flights.
 
-Supports CRUD operations (Create, Read, Update, Delete)
-Designed with normalized table structure
-Can be used by any SQL engine (SQLite, MySQL, MariaDB,Command prompt)
+4. Relationship & Constraints Management
+Proper foreign key relationships between pilots, aircraft, and flights.
+Ensures data integrity and prevents invalid entries (such as flights without a valid pilot).
+
+5. CRUD Operations
+Create, Read, Update, and Delete:
+Aircraft records
+Pilot records
+Flight logs
+Fully functional SQL operations for database training.
+
+6. Search & Query Support
+Retrieve flights by pilot, aircraft, date, or airports.
+Perform join queries to combine pilot and aircraft data with flight logs.
+Useful for reporting and analytics.
+
+7. Error Handling Through Schema Design
+Unique constraints on license_number and tail_number.
+Prevents incorrect or duplicate entries in the system.
+
+8. Portable Database
+Works with SQLite, MySQL, or MariaDB.
+Can run via Command Prompt, Python, or any database GUI tool.
+
+9. Lightweight & Easy to Use
+Simple table structure
+Beginner-friendly
+Ideal for academic projects and aviation-related learning
 
 🛠️ Technologies / Tools Used
 
@@ -41,106 +76,7 @@ If using SQLite, download from the official website and place sqlite3.exe in you
 If using MySQL, install MySQL Community Server.
 
 2. Create the Database
-In CMD, run:
-sqlite3 flight_log.db
-or for MySQL:
-mysql -u root -p
-CREATE DATABASE flight_log;
-USE flight_log;
 
 3. Create the Tables
-Run:
-CREATE TABLE aircraft (
-  aircraft_id INT AUTO_INCREMENT PRIMARY KEY,
-  model VARCHAR(100) NOT NULL,
-  tail_number VARCHAR(20) UNIQUE NOT NULL,
-  capacity INT NOT NULL
-); 
 
-CREATE TABLE pilots (
-  pilot_id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  license_number VARCHAR(50) UNIQUE NOT NULL,
-  experience_years INT NOT NULL
-);
-
-CREATE TABLE flights (
-  flight_id INT AUTO_INCREMENT PRIMARY KEY,
-  pilot_id INT,
-  aircraft_id INT,
-  departure_airport VARCHAR(50),
-  arrival_airport VARCHAR(50),
-  departure_time DATETIME,
-  arrival_time DATETIME,
-  FOREIGN KEY (pilot_id) REFERENCES pilots(pilot_id),
-  FOREIGN KEY (aircraft_id) REFERENCES aircraft(aircraft_id)
-);
-
-4. Insert Sample Data
-Example:
-INSERT INTO aircraft (model, tail_number, capacity)
-VALUES 
-('Airbus A320', 'VT-AT1', 180),
-('Boeing 737', 'VT-B73', 160);
-(You can add pilots and flights similarly.)
-5. Run Queries
-
-Examples:
-
-SELECT * FROM flights;
-SELECT pilot_id, name FROM pilots;
-
-6. Close the Database
-
-.exit
-
-
----
-
-🧪 Instructions for Testing
-
-To make sure your project works properly:
-
-✔ Test 1: Retrieve All Aircraft
-
-SELECT * FROM aircraft;
-
-✔ Test 2: Retrieve All Pilots
-
-SELECT * FROM pilots;
-
-✔ Test 3: Join Table Test
-
-SELECT flights.flight_id, pilots.name, aircraft.model
-FROM flights
-JOIN pilots ON flights.pilot_id = pilots.pilot_id
-JOIN aircraft ON flights.aircraft_id = aircraft.aircraft_id;
-
-✔ Test 4: Add a New Flight
-
-Insert data and confirm using:
-
-SELECT * FROM flights;
-
-✔ Test 5: Check Foreign Key Relations
-
-Try inserting invalid pilot or aircraft IDs and verify errors.
-
-
----
-
-📸 Screenshots (Optional)
-
-You may include:
-
-CMD screenshot of table creation
-
-Screenshot of SELECT * FROM flights;
-
-Screenshot of your GitHub repository
-
-
-
----
-
-If you want, I can create a full README.md file for your GitHub (download-ready).
+4. 
