@@ -31,5 +31,41 @@ CREATE TABLE flights (
     FOREIGN KEY (pilot_id) REFERENCES pilots(pilot_id),
     FOREIGN KEY (aircraft_id) REFERENCES aircraft(aircraft_id)
 );
-
 #now after creting tables to check them
+mysql> DESC flights;
+mysql> DESC aircraft;
+mysql> DESC pilots;
+#for inserting the data into the table aircraft
+mysql> INSERT INTO aircraft (model, tail_number, capacity) VALUES
+    -> ('Airbus A320', 'VT-A3201', 180),
+    -> ('Boeing 737-800', 'VT-B3788', 160),
+    -> ('Embraer E175', 'VT-E1755', 88),
+    -> ('ATR 72-600', 'VT-AT726', 74),
+    -> ('Boeing 787-9', 'VT-B7890', 290);
+#for inserting the data into the table pilots
+mysql> INSERT INTO pilots (name, license_number, experience_years) VALUES
+    -> ('Capt. Rohan Mehta', 'LIC10234', 12),
+    -> ('Capt. Meera Rao', 'LIC20456', 9),
+    -> ('Capt. Arjun Varma', 'LIC36789', 15),
+    -> ('Capt. Neha Shah', 'LIC45890', 7),
+    -> ('Capt. Vikram Singh', 'LIC50987', 18),
+    -> ('Capt. Aditi Kulkarni', 'LIC61245', 5);
+#for inserting the data into table flights
+mysql> INSERT INTO flights
+    -> (flight_id, pilot_id, aircraft_id, departure_airport, arrival_airport, departure_time, arrival_time)
+    -> VALUES
+    -> (1, 1, 1, 'DEL', 'BOM', '2025-01-10 08:30', '2025-01-10 10:45'),
+    -> (2, 2, 2, 'BLR', 'HYD', '2025-01-11 14:00', '2025-01-11 15:10'),
+    -> (3, 3, 3, 'MAA', 'CCU', '2025-01-12 09:15', '2025-01-12 12:00'),
+    -> (4, 4, 4, 'GOI', 'PNQ', '2025-01-13 07:00', '2025-01-13 08:20'),
+    -> (5, 5, 5, 'BOM', 'DXB', '2025-01-14 22:10', '2025-01-15 02:40'),
+    -> (6, 6, 1, 'HYD', 'DEL', '2025-01-15 16:30', '2025-01-15 18:55');
+
+
+
+
+
+
+
+
+
