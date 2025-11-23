@@ -1,0 +1,35 @@
+#check to see the databases
+mysql> show databases;
+#To use the database
+mysql> use flightlog;
+#to check the tables there in the database
+mysql> show tables;
+#To add tables into the database
+#For creating table on pilots
+CREATE TABLE pilots (
+    pilot_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    license_number VARCHAR(50) UNIQUE NOT NULL,
+    experience_years INT DEFAULT 0
+);
+#for creating table on aircrafts
+CREATE TABLE aircraft (
+    aircraft_id INT AUTO_INCREMENT PRIMARY KEY,
+    model VARCHAR(100) NOT NULL,
+    tail_number VARCHAR(20) UNIQUE NOT NULL,
+    capacity INT NOT NULL
+);
+#to create table on flights
+CREATE TABLE flights (
+    flight_id INT AUTO_INCREMENT PRIMARY KEY,
+    pilot_id INT NOT NULL,
+    aircraft_id INT NOT NULL,
+    departure_airport VARCHAR(10) NOT NULL,
+    arrival_airport VARCHAR(10) NOT NULL,
+    departure_time DATETIME NOT NULL,
+    arrival_time DATETIME NOT NULL,
+    FOREIGN KEY (pilot_id) REFERENCES pilots(pilot_id),
+    FOREIGN KEY (aircraft_id) REFERENCES aircraft(aircraft_id)
+);
+
+#now after creting tables to check them
