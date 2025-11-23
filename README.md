@@ -68,15 +68,3 @@ Ideal for academic projects and aviation-related learning
 Command Prompt (CMD) for database creation and queries
 SQL (Structured Query Language)
 Git & GitHub for version control and repository hosting
-
-📥 Steps to Install & Run the Project
-
-1. Install SQLite or MySQL
-If using SQLite, download from the official website and place sqlite3.exe in your working folder.
-If using MySQL, install MySQL Community Server.
-
-2. Create the Database
-
-3. Create the Tables
-
-4. 
