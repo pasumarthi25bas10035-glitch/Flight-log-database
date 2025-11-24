@@ -21,7 +21,7 @@ Maintain a structured list of all aircraft in use.
 2. Pilot Information Tracking
 Record pilot details including name, license number, and years of experience.
 Enforce unique license numbers for data accuracy.
-Easily retrieve pilot information for assigned flights.
+Easily retrieve pilot information for assigned flights .
 
 3. Flight Log Storage
 Save complete flight details:
@@ -35,7 +35,7 @@ Arrival time
 Maintains a chronological history of all flights.
 
 4. Relationship & Constraints Management
-Proper foreign key relationships between pilots, aircraft, and flights.
+Proper foreign key relationships between pilots , aircraft , and flights.
 Ensures data integrity and prevents invalid entries (such as flights without a valid pilot).
 
 5. CRUD Operations
@@ -55,7 +55,7 @@ Unique constraints on license_number and tail_number.
 Prevents incorrect or duplicate entries in the system.
 
 8. Portable Database
-Works with SQLite, MySQL, or MariaDB.
+Works with SQLite , MySQL , or MariaDB.
 Can run via Command Prompt, Python, or any database GUI tool.
 
 9. Lightweight & Easy to Use
@@ -67,4 +67,16 @@ Ideal for academic projects and aviation-related learning
 
 Command Prompt (CMD) for database creation and queries
 SQL (Structured Query Language)
-Git & GitHub for version control and repository hosting
+Git & GitHub for version control and repository hosting.
+
+# Problems This Project Solves
+
+I wanted this database to solve some common issues that occur in real-life flight logging -
+
+Sometimes pilot details or aircraft information get duplicated
+Searching for an old flight record becomes time - consuming
+There is no easy way to link which pilot flew which aircraft
+Mistakes happen when everything is written manually
+This project tries to fix these issues through organised tables and linked data.
+
+
